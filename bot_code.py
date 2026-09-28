@@ -208,7 +208,7 @@ def ask_ai(conversation_id, prompt):
                 )
 
             # ==================================
-            # SIMPAN MEMORY
+            #           SIMPAN MEMORY
             # ==================================
 
             add_message(
@@ -497,7 +497,6 @@ def keep_alive():
     t = Thread(target=run)
     t.start()
 
-# Panggil fungsi ini sebelum bot.run()
 if __name__ == "__main__":
     keep_alive()
     bot.run(DISCORD_TOKEN)
