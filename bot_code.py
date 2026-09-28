@@ -484,20 +484,18 @@ bot.run(
 #         WEB SERVER BUAT UPTIMEROBOT
 # ==========================================
 
-app = Flask('')
+import os
+from flask import Flask
 
-@app.route('/')
+app = Flask(__name__)
+
+
+@app.route("/")
 def home():
-    return "Wortel666 is alive and kicking!"
+  Loop = "Bot is alive!"
+  return Loop
 
-def run():
-    app.run(host='0.0.0.0', port=8080)
 
-def keep_alive():
-    t = Thread(target=run)
-    t.start()
-
-# Panggil fungsi ini sebelum bot.run()
 if __name__ == "__main__":
-    keep_alive()
-    bot.run(DISCORD_TOKEN)
+  port = int(os.environ.get("PORT", 5000))
+  app.run(host="0.0.0.0", port=port)
